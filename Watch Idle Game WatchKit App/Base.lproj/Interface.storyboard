@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16097" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc" pageOrientation="vertical">
+    <device id="watch44"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="16012"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller fullBounds="YES" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Watch_Idle_Game_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <label alignment="center" text="Label" textAlignment="left" id="5zN-mC-IeU">
+                            <fontDescription key="font" type="system" pointSize="16"/>
+                            <variation key="device=watch38mm">
+                                <fontDescription key="font" type="system" pointSize="15"/>
+                            </variation>
+                        </label>
+                        <group width="138" height="1" heightAdjustment="-77" alignment="center" verticalAlignment="center" layout="overlap" id="Xbg-eh-tIp">
+                            <items>
+                                <imageView width="25" height="45" alignment="center" verticalAlignment="bottom" image="single_dollar" id="A31-wx-EK9"/>
+                                <imageView width="25" height="45" alignment="center" verticalAlignment="bottom" image="single_dollar" id="5yE-2Y-6Z8"/>
+                            </items>
+                            <variation key="device=watch38mm" heightAdjustment="-56"/>
+                        </group>
+                        <group width="1" alignment="left" verticalAlignment="bottom" id="2B4-xD-YRd">
+                            <items>
+                                <group width="1" widthAdjustment="-83" height="1" heightAdjustment="15" alignment="left" verticalAlignment="bottom" id="G9a-ib-s0v">
+                                    <items>
+                                        <label height="1" alignment="center" verticalAlignment="bottom" text="Janitor" textAlignment="center" id="GeB-t5-ly4">
+                                            <fontDescription key="font" type="system" pointSize="15"/>
+                                            <variation key="device=watch38mm">
+                                                <fontDescription key="font" type="system" pointSize="8"/>
+                                            </variation>
+                                        </label>
+                                        <imageView width="25" height="0.90000000000000002" heightAdjustment="5" alignment="left" verticalAlignment="bottom" image="janitor" contentMode="scaleAspectFit" id="NOh-WF-F8t">
+                                            <variation key="device=watch38mm" width="15"/>
+                                        </imageView>
+                                    </items>
+                                    <variation key="device=watch38mm" heightAdjustment="-6"/>
+                                </group>
+                                <group width="80" height="58" alignment="left" verticalAlignment="bottom" id="tJ8-GX-JA5">
+                                    <items>
+                                        <button width="1" height="1" heightAdjustment="-11" alignment="right" title="Upgrades" id="EZT-AA-pr8">
+                                            <fontDescription key="font" type="system" pointSize="15"/>
+                                            <variation key="device=watch38mm">
+                                                <fontDescription key="font" type="system" pointSize="8"/>
+                                            </variation>
+                                            <connections>
+                                                <action selector="pushScene" destination="AgC-eL-Hgc" id="zDG-yW-f8Y"/>
+                                            </connections>
+                                        </button>
+                                    </items>
+                                    <variation key="device=watch38mm" height="38"/>
+                                </group>
+                            </items>
+                        </group>
+                    </items>
+                    <edgeInsets key="margins" left="2" right="2" top="0.0" bottom="0.0"/>
+                    <variation key="device=watch38mm">
+                        <nil key="title"/>
+                    </variation>
+                    <connections>
+                        <outlet property="moneyAmount" destination="5zN-mC-IeU" id="Wp6-Ro-aHC"/>
+                        <outlet property="moneyImage" destination="5yE-2Y-6Z8" id="NV7-3K-pSG"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="218.78260869565216" y="222.36607142857144"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" numberOfLines="0" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                        <segue destination="eXb-UN-Cd0" kind="relationship" relationship="dynamicInteractiveNotificationInterface" id="mpB-YA-K8N"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="Watch_Idle_Game_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+        <!--UpgradeInterfaceController-->
+        <scene sceneID="iAx-sy-zo7">
+            <objects>
+                <controller identifier="UpgradeInterfaceController" id="50A-RC-wsj" customClass="UpgradeInterfaceController" customModule="Watch_Idle_Game_WatchKit_Extension">
+                    <items>
+                        <group width="1" height="1" heightAdjustment="-110" alignment="left" id="EfS-QS-VHQ">
+                            <items>
+                                <imageView width="1" widthAdjustment="-141" height="1" heightAdjustment="-38" alignment="left" image="warehouseUpgrade" id="YU6-jN-jS8"/>
+                                <label alignment="left" text="Label" id="vIb-a5-WMs"/>
+                                <imageView width="1" widthAdjustment="-103" height="1" heightAdjustment="-3" alignment="right" image="threshold-1" id="7bV-sd-038"/>
+                            </items>
+                        </group>
+                        <table alignment="left" verticalAlignment="center" id="NAN-5a-F5z">
+                            <items>
+                                <tableRow identifier="RowController" id="I2s-5u-4sU" customClass="RowController" customModule="Watch_Idle_Game_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="mS7-3s-IIX">
+                                        <items>
+                                            <imageView width="1" widthAdjustment="-137" height="1" alignment="left" image="pickpocket" contentMode="scaleAspectFit" id="sez-c4-nAB">
+                                                <variation key="device=watch38mm" widthAdjustment="-95"/>
+                                            </imageView>
+                                            <label width="1" widthAdjustment="-19" height="1" alignment="left" text="Label" id="3hf-c7-aJG">
+                                                <fontDescription key="font" type="system" pointSize="12"/>
+                                                <variation key="device=watch38mm" widthAdjustment="-14">
+                                                    <fontDescription key="font" type="system" pointSize="10"/>
+                                                </variation>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="upgradeImage" destination="sez-c4-nAB" id="3P4-nN-l4n"/>
+                                        <outlet property="upgradeLabel" destination="3hf-c7-aJG" id="WqK-Aj-dPt"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="tableView" destination="NAN-5a-F5z" id="OUL-WW-vyn"/>
+                        <outlet property="thresholdProgressBar" destination="7bV-sd-038" id="NBP-3b-St3"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="518" y="58"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="Niz-AI-uX2">
+            <objects>
+                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="Watch_Idle_Game_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="345"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="janitor" width="106" height="133"/>
+        <image name="pickpocket" width="120" height="120"/>
+        <image name="single_dollar" width="100" height="230"/>
+        <image name="threshold-1" width="300" height="300"/>
+        <image name="warehouseUpgrade" width="120" height="120"/>
+    </resources>
+</document>
