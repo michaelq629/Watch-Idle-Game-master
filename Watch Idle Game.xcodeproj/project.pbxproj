@@ -19,6 +19,7 @@
 		4C9FCEC8245B7200002FE3F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C9FCEC7245B7200002FE3F1 /* Assets.xcassets */; };
 		4CACAF91247DE04000BBBCDA /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CACAF90247DE04000BBBCDA /* Media.xcassets */; };
 		4CD8F395247DBB0C00A637A2 /* RowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD8F394247DBB0C00A637A2 /* RowController.swift */; };
+		4CF77FED248990010054E4AA /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF77FEC248990010054E4AA /* SharedData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		4C9FCECA245B7200002FE3F1 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		4CACAF90247DE04000BBBCDA /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = ../../../Desktop/Assets.xcassets/Media.xcassets; sourceTree = "<group>"; };
 		4CD8F394247DBB0C00A637A2 /* RowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowController.swift; sourceTree = "<group>"; };
+		4CF77FEC248990010054E4AA /* SharedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				4C60D0492484B75900F7A17F /* TotalMoney.swift */,
 				4C736AF82480646E00386E70 /* Position.swift */,
 				4C9FCEC1245B71FF002FE3F1 /* InterfaceController.swift */,
+				4CF77FEC248990010054E4AA /* SharedData.swift */,
 				4C6383562477237800CF93B4 /* UpgradeInterfaceController.swift */,
 				4CD8F394247DBB0C00A637A2 /* RowController.swift */,
 				4C9FCEC3245B71FF002FE3F1 /* ExtensionDelegate.swift */,
@@ -271,6 +274,7 @@
 				4C60D04A2484B75900F7A17F /* TotalMoney.swift in Sources */,
 				4C736AF92480646E00386E70 /* Position.swift in Sources */,
 				4C9FCEC6245B71FF002FE3F1 /* NotificationController.swift in Sources */,
+				4CF77FED248990010054E4AA /* SharedData.swift in Sources */,
 				4C9FCEC4245B71FF002FE3F1 /* ExtensionDelegate.swift in Sources */,
 				4C9FCEC2245B71FF002FE3F1 /* InterfaceController.swift in Sources */,
 			);

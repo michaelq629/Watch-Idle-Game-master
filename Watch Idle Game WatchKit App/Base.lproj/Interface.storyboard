@@ -98,12 +98,27 @@
             <objects>
                 <controller identifier="UpgradeInterfaceController" id="50A-RC-wsj" customClass="UpgradeInterfaceController" customModule="Watch_Idle_Game_WatchKit_Extension">
                     <items>
-                        <group width="1" height="1" heightAdjustment="-110" alignment="left" id="EfS-QS-VHQ">
+                        <group width="1" height="79" alignment="left" id="EfS-QS-VHQ">
                             <items>
-                                <imageView width="1" widthAdjustment="-141" height="1" heightAdjustment="-38" alignment="left" image="warehouseUpgrade" id="YU6-jN-jS8"/>
-                                <label alignment="left" text="Label" id="vIb-a5-WMs"/>
-                                <imageView width="1" widthAdjustment="-103" height="1" heightAdjustment="-3" alignment="right" image="threshold-1" id="7bV-sd-038"/>
+                                <imageView width="75" height="1" heightAdjustment="-7" alignment="right" verticalAlignment="center" image="JanitorThreshold-0" id="7bV-sd-038"/>
+                                <group width="105" height="74" alignment="left" layout="overlap" id="lwn-e4-2tg">
+                                    <items>
+                                        <group width="100" height="30" alignment="right" verticalAlignment="bottom" layout="overlap" id="ws4-yP-zxv">
+                                            <items>
+                                                <button width="1" height="1" alignment="right" verticalAlignment="center" title="Upgrade" id="6R3-Qk-wN1">
+                                                    <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                                    <connections>
+                                                        <action selector="upgradeButton" destination="50A-RC-wsj" id="vaQ-zG-G3y"/>
+                                                    </connections>
+                                                </button>
+                                            </items>
+                                        </group>
+                                        <imageView width="42" height="38" alignment="left" image="warehouseUpgrade" id="YU6-jN-jS8"/>
+                                        <label width="63" height="42" alignment="right" text="Label" id="vIb-a5-WMs"/>
+                                    </items>
+                                </group>
                             </items>
+                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </group>
                         <table alignment="left" verticalAlignment="center" id="NAN-5a-F5z">
                             <items>
@@ -135,7 +150,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="518" y="58"/>
+            <point key="canvasLocation" x="516.6521739130435" y="57.678571428571431"/>
         </scene>
         <!--Notification Controller-->
         <scene sceneID="Niz-AI-uX2">
@@ -146,10 +161,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="JanitorThreshold-0" width="300" height="300"/>
         <image name="janitor" width="106" height="133"/>
         <image name="pickpocket" width="120" height="120"/>
         <image name="single_dollar" width="100" height="230"/>
-        <image name="threshold-1" width="300" height="300"/>
         <image name="warehouseUpgrade" width="120" height="120"/>
     </resources>
 </document>

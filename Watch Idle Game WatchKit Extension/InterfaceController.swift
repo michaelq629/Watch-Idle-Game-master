@@ -19,12 +19,13 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
         super.awake(withContext: context)
         moneyAmount.setText("$0")
         crownSequencer.delegate = self
+//        print(SharedData.sharedInstance.positionsArray[0])
         
     }
     
 
     
-    let janitor = Position.init(name: "Janitor", image: "janitor", upgradeButtonText: "Warehouse", upgradeButtonImage: "warehouseUpgrade", upgradeButtonCostText: "$500", earningRate: 10, earningQuad: [0.025, 0.050, 0.075, 0.01])
+    
     
     
     
@@ -52,8 +53,8 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
     func crownDidRotate(_ crownSequencer: WKCrownSequencer?, rotationalDelta: Double) {
         
         if upgradeLevel == 0 {
-            earningQuad = janitor.earningQuad
-            earningRate = janitor.earningRate
+            earningQuad = SharedData.sharedInstance.positionsArray[0].earningQuad
+            earningRate = SharedData.sharedInstance.positionsArray[0].earningRate
             
         }
         
@@ -85,9 +86,9 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
         print("threshold is", threshold)
         let formattedValue = String(format: "%0.2f", totalBalance)
         totalBalance = Double(formattedValue)!
+        SharedData.sharedInstance.totalMoney = totalBalance
         moneyAmount.setText("$" +  String(totalBalance))
-        TotalMoney.init(money: totalBalance)
-        
+       
     }
 
     
@@ -116,6 +117,8 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
         
     @IBAction func pushScene() {
     pushController(withName: "UpgradeInterfaceController", context: nil)
+        
+        
     }
 
         

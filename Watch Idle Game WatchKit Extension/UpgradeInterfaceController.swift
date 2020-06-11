@@ -17,6 +17,11 @@ class UpgradeInterfaceController: WKInterfaceController {
     
    
 
+    @IBAction func upgradeButton() {
+        print("Upgrade button clicked")
+    }
+    
+    
  
     
 
@@ -33,11 +38,12 @@ class UpgradeInterfaceController: WKInterfaceController {
     override func awake(withContext context: Any?) {
               super.awake(withContext: context)
     
-       
+       print(SharedData.sharedInstance.totalMoney)
         
         thresholdProgressBar.setImageNamed("JanitorThreshold-")
-        thresholdProgressBar.startAnimatingWithImages(in: NSMakeRange(money, 1), duration: 1, repeatCount: 1)
+        thresholdProgressBar.startAnimatingWithImages(in: NSMakeRange(Int(SharedData.sharedInstance.totalMoney), 1), duration: 1, repeatCount: 1)
               loadTableData()
+        
         
             
           }
