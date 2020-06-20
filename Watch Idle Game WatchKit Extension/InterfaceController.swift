@@ -17,13 +17,18 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        moneyAmount.setText("$0")
+        moneyAmount.setText(String(SharedData.sharedInstance.totalMoney))
         crownSequencer.delegate = self
 //        print(SharedData.sharedInstance.positionsArray[0])
         
     }
     
 
+    @IBAction func upgradeButton() {
+        
+           
+         pushController(withName: "UpgradeInterfaceController", context: nil)
+    }
     
     
     
@@ -35,7 +40,6 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
     
     
     var gameRunning:Bool = true
-    var totalBalance:Double = 0
     var earningRate : Double = 0.0
     var earnings:Double = 0
     var earningQuad:[Double] = []
@@ -44,19 +48,25 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
         static var amount:Double = 0
     }
     
-    var upgradeLevel : Int = 0
+ 
+    
     
     
     
     
     var threshold = 0.0
     func crownDidRotate(_ crownSequencer: WKCrownSequencer?, rotationalDelta: Double) {
+        if SharedData.sharedInstance.upgradeLevel == 0 {
+                           earningQuad = SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].earningQuad
+                           earningRate = SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].earningRate
+                           
+                       }
+        if SharedData.sharedInstance.upgradeLevel == 1 {
+                                  earningQuad = SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].earningQuad
+                                  earningRate = SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].earningRate
+                                  
+                              }
         
-        if upgradeLevel == 0 {
-            earningQuad = SharedData.sharedInstance.positionsArray[0].earningQuad
-            earningRate = SharedData.sharedInstance.positionsArray[0].earningRate
-            
-        }
         
      
         if rotationalDelta < earningQuad[0]  {
@@ -77,17 +87,16 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
         //        print("threshold after if statement is", threshold)
                 }
         print("Earnings is \(earnings)")
-        totalBalance += earnings
-        totalBalance = round(1000.0 * totalBalance) / 1000.0
-        print("total ever rotated is", totalBalance)
+        SharedData.sharedInstance.totalMoney += earnings
+        SharedData.sharedInstance.totalMoney = round(1000.0 * SharedData.sharedInstance.totalMoney) / 1000.0
+        print("total ever rotated is", SharedData.sharedInstance.totalMoney)
         threshold += earnings
         threshold = round(1000.0 * threshold) / 1000.0
-//        print("totalBalance is", totalBalance)
+//        print("SharedData.sharedInstance.totalMoney is", SharedData.sharedInstance.totalMoney)
         print("threshold is", threshold)
-        let formattedValue = String(format: "%0.2f", totalBalance)
-        totalBalance = Double(formattedValue)!
-        SharedData.sharedInstance.totalMoney = totalBalance
-        moneyAmount.setText("$" +  String(totalBalance))
+        let formattedValue = String(format: "%0.2f", SharedData.sharedInstance.totalMoney)
+        SharedData.sharedInstance.totalMoney = Double(formattedValue)!
+        moneyAmount.setText("$" +  String(SharedData.sharedInstance.totalMoney))
        
     }
 
@@ -114,12 +123,6 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
 
 
    
-        
-    @IBAction func pushScene() {
-    pushController(withName: "UpgradeInterfaceController", context: nil)
-        
-        
-    }
 
         
     
@@ -135,11 +138,21 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        if SharedData.sharedInstance.justPurchased == true {
+                       moneyAmount.setText("$" +  String(SharedData.sharedInstance.totalMoney))
+                       threshold = SharedData.sharedInstance.totalMoney
+                   }
+        
+        
+    
     }
     
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
+    
+    
+                
     }
     override func didAppear() {
         crownSequencer.focus()

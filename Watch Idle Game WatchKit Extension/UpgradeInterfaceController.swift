@@ -15,10 +15,70 @@ class UpgradeInterfaceController: WKInterfaceController {
     @IBOutlet weak var thresholdProgressBar: WKInterfaceImage!
     @IBOutlet weak var tableView: WKInterfaceTable!
     
-   
+    @IBOutlet weak var upgradeButtonOutlet: WKInterfaceButton!
+    
+    var currentPosition : Position?
 
     @IBAction func upgradeButton() {
-        print("Upgrade button clicked")
+        
+      
+        
+        
+        if SharedData.sharedInstance.upgradeLevel == 0 && SharedData.sharedInstance.totalMoney >= 500{
+            SharedData.sharedInstance.justPurchased = true
+            SharedData.sharedInstance.upgradeLevel += 1
+            SharedData.sharedInstance.totalMoney = SharedData.sharedInstance.totalMoney - 500
+            
+            
+            
+            thresholdProgressBar.startAnimatingWithImages(in: NSMakeRange(Int(SharedData.sharedInstance.totalMoney), 1), duration: 1, repeatCount: 1)
+           loadTableData()
+            
+            animate(withDuration: 0.2) {
+                         self.upgradeButtonOutlet.setBackgroundColor(UIColor.green)
+                     }
+                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.21) {
+                         self.animate(withDuration: 0.2) {
+                             self.upgradeButtonOutlet.setBackgroundColor(UIColor.init(red: 31/100, green: 33/100, blue: 36/100, alpha: 1))
+                         }
+                     }
+                     
+             
+        }
+        
+        if  SharedData.sharedInstance.upgradeLevel == 1 &&  SharedData.sharedInstance.totalMoney >= 1000 {
+                   SharedData.sharedInstance.justPurchased = true
+                   SharedData.sharedInstance.upgradeLevel += 1
+                   SharedData.sharedInstance.totalMoney = SharedData.sharedInstance.totalMoney - 1000
+                   thresholdProgressBar.startAnimatingWithImages(in: NSMakeRange(Int(SharedData.sharedInstance.totalMoney), 1), duration: 1, repeatCount: 1)
+                
+            animate(withDuration: 0.2) {
+                         self.upgradeButtonOutlet.setBackgroundColor(UIColor.green)
+                     }
+                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.21) {
+                         self.animate(withDuration: 0.2) {
+                             self.upgradeButtonOutlet.setBackgroundColor(UIColor.init(red: 31/100, green: 33/100, blue: 36/100, alpha: 1))
+                         }
+                     }
+                     
+               }
+            
+    
+        
+        
+        
+            animate(withDuration: 0.2) {
+                self.upgradeButtonOutlet.setBackgroundColor(UIColor.red)
+            }
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.21) {
+                self.animate(withDuration: 0.2) {
+                    self.upgradeButtonOutlet.setBackgroundColor(UIColor.init(red: 31/100, green: 33/100, blue: 36/100, alpha: 1))
+                }
+            }
+            
+
+        
+        
     }
     
     
@@ -32,8 +92,8 @@ class UpgradeInterfaceController: WKInterfaceController {
     
     
     
-    let janitorUpgradeNames = ["Sell broom from work", "Pickpocket CEO", "Pickpocket Salesman", "Gamble in the casino"]
-    let janitorUpgradeImages = ["broom", "pickpocket", "pickpocket", "casino"]
+//    let janitorUpgradeNames = ["Sell broom from work", "Pickpocket CEO", "Pickpocket Salesman", "Gamble in the casino"]
+//    let janitorUpgradeImages = ["broom", "pickpocket", "pickpocket", "casino"]
     
     override func awake(withContext context: Any?) {
               super.awake(withContext: context)
@@ -42,33 +102,56 @@ class UpgradeInterfaceController: WKInterfaceController {
         
         thresholdProgressBar.setImageNamed("JanitorThreshold-")
         thresholdProgressBar.startAnimatingWithImages(in: NSMakeRange(Int(SharedData.sharedInstance.totalMoney), 1), duration: 1, repeatCount: 1)
-              loadTableData()
+        currentPosition = SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel]
+        loadTableData()
+        let indexes = NSIndexSet(index: SharedData.sharedInstance.gambleTableViewIndex)
         
+        for i in SharedData.sharedInstance.gambleTableViewDeletedCells {
+            
+            tableView.removeRows(at: indexes as IndexSet)
+            
+        }
         
             
           }
     
     
     
-    private func loadTableData() {
+    override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
         
         
-        tableView.setNumberOfRows(janitorUpgradeNames.count, withRowType: "RowController")
-        
-        for (index, rowModel) in janitorUpgradeNames.enumerated() {
+         
+            pushController(withName: "gambleResult", context: Any?.self)
+            let indexes = NSIndexSet(index: rowIndex)
+            tableView.removeRows(at: indexes as IndexSet)
+        SharedData.sharedInstance.gambleTableViewDeletedCells.append(0)
             
-            if let rowController = tableView.rowController(at: index) as? RowController {
-                rowController.upgradeLabel.setText(rowModel)
+        
+    }
+    
+    
+    
+    private func loadTableData() {
+        if let currentPos = currentPosition {
+            
+
+            tableView.setNumberOfRows(currentPos.gambles.count, withRowType: "RowController")
+            
+            for (index, gamble) in currentPos.gambles.enumerated() {
                 
-            }
-            for (index, rowModel) in janitorUpgradeImages.enumerated() {
-                         
-                         if let rowController = tableView.rowController(at: index) as? RowController {
-                          rowController.upgradeImage.setImageNamed(rowModel)
-                         }
-                         
+                if let rowController = tableView.rowController(at: index) as? RowController {
+                    rowController.upgradeLabel.setText(gamble.name)
+                    rowController.upgradeImage.setImageNamed(gamble.image)
+                    
+                }
                      }
-                 }
+            
+            
+            
+        }
+        
+        
+        
             
             
             
