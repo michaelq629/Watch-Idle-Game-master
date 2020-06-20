@@ -48,7 +48,7 @@
                                                 <fontDescription key="font" type="system" pointSize="8"/>
                                             </variation>
                                             <connections>
-                                                <action selector="pushScene" destination="AgC-eL-Hgc" id="zDG-yW-f8Y"/>
+                                                <action selector="upgradeButton" destination="AgC-eL-Hgc" id="tty-qF-5Ee"/>
                                             </connections>
                                         </button>
                                     </items>
@@ -106,6 +106,7 @@
                                         <group width="100" height="30" alignment="right" verticalAlignment="bottom" layout="overlap" id="ws4-yP-zxv">
                                             <items>
                                                 <button width="1" height="1" alignment="right" verticalAlignment="center" title="Upgrade" id="6R3-Qk-wN1">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                     <connections>
                                                         <action selector="upgradeButton" destination="50A-RC-wsj" id="vaQ-zG-G3y"/>
@@ -147,10 +148,27 @@
                     <connections>
                         <outlet property="tableView" destination="NAN-5a-F5z" id="OUL-WW-vyn"/>
                         <outlet property="thresholdProgressBar" destination="7bV-sd-038" id="NBP-3b-St3"/>
+                        <outlet property="upgradeButtonOutlet" destination="6R3-Qk-wN1" id="vc1-z6-EqE"/>
                     </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="516.6521739130435" y="57.678571428571431"/>
+        </scene>
+        <!--gambleResult-->
+        <scene sceneID="eVl-tx-nsn">
+            <objects>
+                <controller identifier="gambleResult" id="fr4-sg-BQR" customClass="gambleResult" customModule="Watch_Idle_Game_WatchKit_Extension">
+                    <items>
+                        <label width="136" height="65" alignment="left" text="Label" id="2PK-Om-d2f"/>
+                        <label width="136" height="82" alignment="left" text="Label" id="46K-NA-0eP"/>
+                    </items>
+                    <connections>
+                        <outlet property="moneyLossLabel" destination="46K-NA-0eP" id="9fN-JR-pH8"/>
+                        <outlet property="winOrLossLabel" destination="2PK-Om-d2f" id="BkS-GT-h7O"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="776.82608695652175" y="50.848214285714285"/>
         </scene>
         <!--Notification Controller-->
         <scene sceneID="Niz-AI-uX2">

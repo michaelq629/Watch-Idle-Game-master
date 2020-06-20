@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C60D04A2484B75900F7A17F /* TotalMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C60D0492484B75900F7A17F /* TotalMoney.swift */; };
+		4C40261C249C4F1100B25046 /* gambleResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C40261B249C4F1100B25046 /* gambleResult.swift */; };
 		4C6383572477237800CF93B4 /* UpgradeInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6383562477237800CF93B4 /* UpgradeInterfaceController.swift */; };
 		4C736AF92480646E00386E70 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C736AF82480646E00386E70 /* Position.swift */; };
 		4C9FCEAE245B71FB002FE3F1 /* Watch Idle Game WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 4C9FCEAD245B71FB002FE3F1 /* Watch Idle Game WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -65,7 +65,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4C60D0492484B75900F7A17F /* TotalMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalMoney.swift; sourceTree = "<group>"; };
+		4C40261B249C4F1100B25046 /* gambleResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gambleResult.swift; sourceTree = "<group>"; };
 		4C6383562477237800CF93B4 /* UpgradeInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeInterfaceController.swift; sourceTree = "<group>"; };
 		4C736AF82480646E00386E70 /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		4C9FCEA9245B71FB002FE3F1 /* Watch Idle Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Watch Idle Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,11 +127,11 @@
 		4C9FCEC0245B71FF002FE3F1 /* Watch Idle Game WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				4C60D0492484B75900F7A17F /* TotalMoney.swift */,
 				4C736AF82480646E00386E70 /* Position.swift */,
 				4C9FCEC1245B71FF002FE3F1 /* InterfaceController.swift */,
 				4CF77FEC248990010054E4AA /* SharedData.swift */,
 				4C6383562477237800CF93B4 /* UpgradeInterfaceController.swift */,
+				4C40261B249C4F1100B25046 /* gambleResult.swift */,
 				4CD8F394247DBB0C00A637A2 /* RowController.swift */,
 				4C9FCEC3245B71FF002FE3F1 /* ExtensionDelegate.swift */,
 				4C9FCEC5245B71FF002FE3F1 /* NotificationController.swift */,
@@ -271,7 +271,7 @@
 			files = (
 				4CD8F395247DBB0C00A637A2 /* RowController.swift in Sources */,
 				4C6383572477237800CF93B4 /* UpgradeInterfaceController.swift in Sources */,
-				4C60D04A2484B75900F7A17F /* TotalMoney.swift in Sources */,
+				4C40261C249C4F1100B25046 /* gambleResult.swift in Sources */,
 				4C736AF92480646E00386E70 /* Position.swift in Sources */,
 				4C9FCEC6245B71FF002FE3F1 /* NotificationController.swift in Sources */,
 				4CF77FED248990010054E4AA /* SharedData.swift in Sources */,

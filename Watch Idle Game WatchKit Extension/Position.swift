@@ -25,7 +25,7 @@ struct Position {
 struct Gamble {
     var name:String
     var image:String
-    var riskAndRewardText:String
     var profitPossibility:Int
-    
+    var winOrLossText : [String]
+    var profitOrLossAmount : [Int]
 }
