@@ -21,7 +21,9 @@ class UpgradeInterfaceController: WKInterfaceController {
 
     @IBAction func upgradeButton() {
         
-      
+      print(SharedData.sharedInstance.upgradeLevel)
+        print(SharedData.sharedInstance.totalMoney)
+        
         
         
         if SharedData.sharedInstance.upgradeLevel == 0 && SharedData.sharedInstance.totalMoney >= 500{
@@ -46,7 +48,8 @@ class UpgradeInterfaceController: WKInterfaceController {
              
         }
         
-        if  SharedData.sharedInstance.upgradeLevel == 1 &&  SharedData.sharedInstance.totalMoney >= 1000 {
+        
+       else if  SharedData.sharedInstance.upgradeLevel == 1 &&  SharedData.sharedInstance.totalMoney >= 1000 {
                    SharedData.sharedInstance.justPurchased = true
                    SharedData.sharedInstance.upgradeLevel += 1
                    SharedData.sharedInstance.totalMoney = SharedData.sharedInstance.totalMoney - 1000
@@ -67,7 +70,10 @@ class UpgradeInterfaceController: WKInterfaceController {
         
         
         
-            animate(withDuration: 0.2) {
+        else {
+            
+            
+         animate(withDuration: 0.2) {
                 self.upgradeButtonOutlet.setBackgroundColor(UIColor.red)
             }
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.21) {
@@ -77,7 +83,7 @@ class UpgradeInterfaceController: WKInterfaceController {
             }
             
 
-        
+    }
         
     }
     

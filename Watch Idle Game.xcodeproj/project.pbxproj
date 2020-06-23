@@ -19,6 +19,9 @@
 		4C9FCEC8245B7200002FE3F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C9FCEC7245B7200002FE3F1 /* Assets.xcassets */; };
 		4CACAF91247DE04000BBBCDA /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CACAF90247DE04000BBBCDA /* Media.xcassets */; };
 		4CD8F395247DBB0C00A637A2 /* RowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD8F394247DBB0C00A637A2 /* RowController.swift */; };
+		4CEFDD4A24A1C3E800B44773 /* VetteLetters - DBXLNightfever Wide.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4CEFDD4924A1C3E800B44773 /* VetteLetters - DBXLNightfever Wide.otf */; };
+		4CEFDD4B24A1C3E800B44773 /* VetteLetters - DBXLNightfever Wide.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4CEFDD4924A1C3E800B44773 /* VetteLetters - DBXLNightfever Wide.otf */; };
+		4CEFDD4C24A1C3E800B44773 /* VetteLetters - DBXLNightfever Wide.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4CEFDD4924A1C3E800B44773 /* VetteLetters - DBXLNightfever Wide.otf */; };
 		4CF77FED248990010054E4AA /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF77FEC248990010054E4AA /* SharedData.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +84,7 @@
 		4C9FCECA245B7200002FE3F1 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		4CACAF90247DE04000BBBCDA /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = ../../../Desktop/Assets.xcassets/Media.xcassets; sourceTree = "<group>"; };
 		4CD8F394247DBB0C00A637A2 /* RowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowController.swift; sourceTree = "<group>"; };
+		4CEFDD4924A1C3E800B44773 /* VetteLetters - DBXLNightfever Wide.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VetteLetters - DBXLNightfever Wide.otf"; sourceTree = "<group>"; };
 		4CF77FEC248990010054E4AA /* SharedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,6 +124,7 @@
 				4C9FCEB2245B71FB002FE3F1 /* Interface.storyboard */,
 				4CACAF90247DE04000BBBCDA /* Media.xcassets */,
 				4C9FCEB7245B71FF002FE3F1 /* Info.plist */,
+				4CEFDD4924A1C3E800B44773 /* VetteLetters - DBXLNightfever Wide.otf */,
 			);
 			path = "Watch Idle Game WatchKit App";
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CEFDD4A24A1C3E800B44773 /* VetteLetters - DBXLNightfever Wide.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +257,7 @@
 			files = (
 				4CACAF91247DE04000BBBCDA /* Media.xcassets in Resources */,
 				4C9FCEB4245B71FB002FE3F1 /* Interface.storyboard in Resources */,
+				4CEFDD4B24A1C3E800B44773 /* VetteLetters - DBXLNightfever Wide.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C9FCEC8245B7200002FE3F1 /* Assets.xcassets in Resources */,
+				4CEFDD4C24A1C3E800B44773 /* VetteLetters - DBXLNightfever Wide.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

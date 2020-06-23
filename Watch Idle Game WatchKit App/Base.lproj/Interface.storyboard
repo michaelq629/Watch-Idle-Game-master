@@ -5,25 +5,23 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="16012"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="VetteLetters - DBXLNightfever Wide.otf">
+            <string>DBXLNightfever-Wide</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
                 <controller fullBounds="YES" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Watch_Idle_Game_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <label alignment="center" text="Label" textAlignment="left" id="5zN-mC-IeU">
-                            <fontDescription key="font" type="system" pointSize="16"/>
+                        <label width="1" height="126" alignment="center" text="Label" textAlignment="center" id="5zN-mC-IeU">
+                            <fontDescription key="font" name="DBXLNightfever-Wide" family="DBXLNightfever" pointSize="47"/>
                             <variation key="device=watch38mm">
-                                <fontDescription key="font" type="system" pointSize="15"/>
+                                <fontDescription key="font" type="system" pointSize="18"/>
                             </variation>
                         </label>
-                        <group width="138" height="1" heightAdjustment="-77" alignment="center" verticalAlignment="center" layout="overlap" id="Xbg-eh-tIp">
-                            <items>
-                                <imageView width="25" height="45" alignment="center" verticalAlignment="bottom" image="single_dollar" id="A31-wx-EK9"/>
-                                <imageView width="25" height="45" alignment="center" verticalAlignment="bottom" image="single_dollar" id="5yE-2Y-6Z8"/>
-                            </items>
-                            <variation key="device=watch38mm" heightAdjustment="-56"/>
-                        </group>
                         <group width="1" alignment="left" verticalAlignment="bottom" id="2B4-xD-YRd">
                             <items>
                                 <group width="1" widthAdjustment="-83" height="1" heightAdjustment="15" alignment="left" verticalAlignment="bottom" id="G9a-ib-s0v">
@@ -63,7 +61,6 @@
                     </variation>
                     <connections>
                         <outlet property="moneyAmount" destination="5zN-mC-IeU" id="Wp6-Ro-aHC"/>
-                        <outlet property="moneyImage" destination="5yE-2Y-6Z8" id="NV7-3K-pSG"/>
                     </connections>
                 </controller>
             </objects>
@@ -182,7 +179,6 @@
         <image name="JanitorThreshold-0" width="300" height="300"/>
         <image name="janitor" width="106" height="133"/>
         <image name="pickpocket" width="120" height="120"/>
-        <image name="single_dollar" width="100" height="230"/>
         <image name="warehouseUpgrade" width="120" height="120"/>
     </resources>
 </document>

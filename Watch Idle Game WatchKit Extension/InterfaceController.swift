@@ -80,12 +80,9 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
         else if rotationalDelta < earningQuad[3] {
             earnings = earningQuad[3]
         }
-          if threshold >= earningRate  {
-                moneyAnimate()
-                threshold = 0
-                print("Threshold has been resetted")
-        //        print("threshold after if statement is", threshold)
-                }
+          
+        
+        
         print("Earnings is \(earnings)")
         SharedData.sharedInstance.totalMoney += earnings
         SharedData.sharedInstance.totalMoney = round(1000.0 * SharedData.sharedInstance.totalMoney) / 1000.0
@@ -101,24 +98,7 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
     }
 
     
-    func moneyAnimate () {
-        
-        self.moneyImage.setHidden(false)
-        animate(withDuration: 0.2, animations: {
-            self.moneyImage.setHidden(false)
-            self.moneyImage.setVerticalAlignment(.top)
-        })
-        let secondsToDelay = 0.2
-        DispatchQueue.main.asyncAfter(deadline: .now() + secondsToDelay) {
-            self.moneyImage.setHidden(true)
-            
-            self.animate(withDuration: 0.1, animations: {
-                self.moneyImage.setVerticalAlignment(.bottom)
-                WKInterfaceDevice().play(.notification)
-            })
-        }
-        
-    }
+ 
     
 
 
