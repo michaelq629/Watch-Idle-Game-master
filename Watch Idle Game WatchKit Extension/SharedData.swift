@@ -31,8 +31,8 @@ class SharedData {
     
     
     private init() {
-        let gamble1 = Gamble.init(name: "Sell broom from work", image: "broom", profitPossibility: 75, winOrLossText: ["Wow, you won", "Wow, you lost"], profitOrLossAmount: [500,-100] )
-         let gamble2 = Gamble.init(name: "Gamble in the casino", image: "casino", profitPossibility: 50, winOrLossText: ["Wow, you won", "Wow, you lost"], profitOrLossAmount: [200,-1000] )
+        let gamble1 = Gamble.init(name: "Sell broom from work", image: "broom", profitPossibility: 100, winOrLossText: ["Wow, you won", "Wow, you lost"], profitOrLossAmount: [500,-100] )
+         let gamble2 = Gamble.init(name: "Gamble in the casino", image: "casino", profitPossibility: 1, winOrLossText: ["Wow, you won", "Wow, you lost"], profitOrLossAmount: [200,-1000] )
         
        
         
@@ -41,7 +41,7 @@ class SharedData {
         
         
         
-        let warehouse = Position.init(name: "Janitor", image: "janitor", upgradeButtonText: "Warehouse", upgradeButtonImage: "warehouseUpgrade", upgradeButtonCostText: "$500", gambles: [gamble1] ,  earningRate: 100, earningQuad: [0.25, 0.50, 0.75, 0.1])
+        let warehouse = Position.init(name: "Warehouse", image: "janitor", upgradeButtonText: "Warehouse", upgradeButtonImage: "warehouseUpgrade", upgradeButtonCostText: "$500", gambles: [gamble1] ,  earningRate: 100, earningQuad: [0.25, 0.50, 0.75, 0.1])
         positionsArray.append(janitor)
           positionsArray.append(warehouse)
         print(positionsArray)

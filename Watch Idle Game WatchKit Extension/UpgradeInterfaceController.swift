@@ -142,7 +142,7 @@ class UpgradeInterfaceController: WKInterfaceController {
             let indexes = NSIndexSet(index: rowIndex)
             tableView.removeRows(at: indexes as IndexSet)
         SharedData.sharedInstance.gambleTableViewDeletedCells.append(0)
-            
+         
         
     }
     
@@ -173,6 +173,12 @@ class UpgradeInterfaceController: WKInterfaceController {
             
             
         }
+    
+    override func willActivate() {
+        super.willActivate()
+             animateThreshold()
+        
+    }
     }
     
     
