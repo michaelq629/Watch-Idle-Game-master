@@ -61,6 +61,8 @@
                     </variation>
                     <connections>
                         <outlet property="moneyAmount" destination="5zN-mC-IeU" id="Wp6-Ro-aHC"/>
+                        <outlet property="positionAvatar" destination="NOh-WF-F8t" id="nqT-Fi-Gu9"/>
+                        <outlet property="positionLabel" destination="GeB-t5-ly4" id="4mw-I2-S21"/>
                     </connections>
                 </controller>
             </objects>

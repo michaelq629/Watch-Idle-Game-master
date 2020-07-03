@@ -13,13 +13,15 @@ import Foundation
 
 class InterfaceController: WKInterfaceController, WKCrownDelegate {
     @IBOutlet weak var moneyAmount: WKInterfaceLabel!
-    @IBOutlet weak var moneyImage: WKInterfaceImage!
+    @IBOutlet weak var positionAvatar: WKInterfaceImage!
+    @IBOutlet weak var positionLabel: WKInterfaceLabel!
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         moneyAmount.setText(String(SharedData.sharedInstance.totalMoney))
         crownSequencer.delegate = self
 //        print(SharedData.sharedInstance.positionsArray[0])
+        positionLabel.setText(SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].name)
         
     }
     
@@ -121,7 +123,10 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
         if SharedData.sharedInstance.justPurchased == true {
                        moneyAmount.setText("$" +  String(SharedData.sharedInstance.totalMoney))
                        threshold = SharedData.sharedInstance.totalMoney
+            positionLabel.setText(SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].name)
                    }
+        
+        
         
         
     

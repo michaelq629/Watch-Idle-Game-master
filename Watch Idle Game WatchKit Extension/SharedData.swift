@@ -32,7 +32,7 @@ class SharedData {
     
     private init() {
         let gamble1 = Gamble.init(name: "Sell broom from work", image: "broom", profitPossibility: 75, winOrLossText: ["Wow, you won", "Wow, you lost"], profitOrLossAmount: [500,-100] )
-         let gamble2 = Gamble.init(name: "Gamble in the casino", image: "casino", profitPossibility: 20, winOrLossText: ["Wow, you won", "Wow, you lost"], profitOrLossAmount: [200,-1000] )
+         let gamble2 = Gamble.init(name: "Gamble in the casino", image: "casino", profitPossibility: 50, winOrLossText: ["Wow, you won", "Wow, you lost"], profitOrLossAmount: [200,-1000] )
         
        
         

@@ -19,6 +19,13 @@ class UpgradeInterfaceController: WKInterfaceController {
     
     var currentPosition : Position?
 
+    
+    func animateThreshold () {
+        thresholdProgressBar.setImageNamed("JanitorThreshold-")
+        thresholdProgressBar.startAnimatingWithImages(in: NSMakeRange(Int(SharedData.sharedInstance.totalMoney), 1), duration: 1, repeatCount: 1)
+    }
+    
+    
     @IBAction func upgradeButton() {
         
       print(SharedData.sharedInstance.upgradeLevel)
@@ -30,11 +37,10 @@ class UpgradeInterfaceController: WKInterfaceController {
             SharedData.sharedInstance.justPurchased = true
             SharedData.sharedInstance.upgradeLevel += 1
             SharedData.sharedInstance.totalMoney = SharedData.sharedInstance.totalMoney - 500
+            animateThreshold()
             
             
-            
-            thresholdProgressBar.startAnimatingWithImages(in: NSMakeRange(Int(SharedData.sharedInstance.totalMoney), 1), duration: 1, repeatCount: 1)
-           loadTableData()
+
             
             animate(withDuration: 0.2) {
                          self.upgradeButtonOutlet.setBackgroundColor(UIColor.green)
@@ -45,7 +51,7 @@ class UpgradeInterfaceController: WKInterfaceController {
                          }
                      }
                      
-             
+                        
         }
         
         
@@ -53,7 +59,7 @@ class UpgradeInterfaceController: WKInterfaceController {
                    SharedData.sharedInstance.justPurchased = true
                    SharedData.sharedInstance.upgradeLevel += 1
                    SharedData.sharedInstance.totalMoney = SharedData.sharedInstance.totalMoney - 1000
-                   thresholdProgressBar.startAnimatingWithImages(in: NSMakeRange(Int(SharedData.sharedInstance.totalMoney), 1), duration: 1, repeatCount: 1)
+                  animateThreshold()
                 
             animate(withDuration: 0.2) {
                          self.upgradeButtonOutlet.setBackgroundColor(UIColor.green)
@@ -65,6 +71,7 @@ class UpgradeInterfaceController: WKInterfaceController {
                      }
                      
                }
+  
             
     
         
@@ -84,6 +91,7 @@ class UpgradeInterfaceController: WKInterfaceController {
             
 
     }
+            
         
     }
     
@@ -106,10 +114,9 @@ class UpgradeInterfaceController: WKInterfaceController {
     
        print(SharedData.sharedInstance.totalMoney)
         
-        thresholdProgressBar.setImageNamed("JanitorThreshold-")
-        thresholdProgressBar.startAnimatingWithImages(in: NSMakeRange(Int(SharedData.sharedInstance.totalMoney), 1), duration: 1, repeatCount: 1)
         currentPosition = SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel]
         loadTableData()
+        animateThreshold()
         let indexes = NSIndexSet(index: SharedData.sharedInstance.gambleTableViewIndex)
         
         for i in SharedData.sharedInstance.gambleTableViewDeletedCells {
@@ -117,16 +124,20 @@ class UpgradeInterfaceController: WKInterfaceController {
             tableView.removeRows(at: indexes as IndexSet)
             
         }
-        
+        if SharedData.sharedInstance.totalMoney <= 0 {
+                   thresholdProgressBar.setImageNamed("JanitorThreshold-0")
+               }
             
           }
+    
+   
     
     
     
     override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
         
         
-         
+            SharedData.sharedInstance.gambleTableViewIndex = rowIndex
             pushController(withName: "gambleResult", context: Any?.self)
             let indexes = NSIndexSet(index: rowIndex)
             tableView.removeRows(at: indexes as IndexSet)
