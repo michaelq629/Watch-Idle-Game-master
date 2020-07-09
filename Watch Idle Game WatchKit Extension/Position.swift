@@ -14,7 +14,7 @@ struct Position {
     var image:String
     var upgradeButtonText:String
     var upgradeButtonImage:String
-    var upgradeButtonCostText:String
+    var upgradeButtonCost:Int 
     var gambles:[Gamble]
     var earningRate:Double
     var earningQuad:[Double]

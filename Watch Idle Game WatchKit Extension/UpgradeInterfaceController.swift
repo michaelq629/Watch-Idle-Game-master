@@ -12,6 +12,9 @@ class UpgradeInterfaceController: WKInterfaceController {
     
     var money = 0
    
+    @IBOutlet weak var upgradeCostLabel: WKInterfaceLabel!
+    @IBOutlet weak var currentPosLabel: WKInterfaceLabel!
+    @IBOutlet weak var currentPosPic: WKInterfaceImage!
     @IBOutlet weak var thresholdProgressBar: WKInterfaceImage!
     @IBOutlet weak var tableView: WKInterfaceTable!
     
@@ -21,10 +24,11 @@ class UpgradeInterfaceController: WKInterfaceController {
 
     
     func animateThreshold () {
-        thresholdProgressBar.setImageNamed("JanitorThreshold-")
-        thresholdProgressBar.startAnimatingWithImages(in: NSMakeRange(Int(SharedData.sharedInstance.totalMoney), 1), duration: 1, repeatCount: 1)
+        thresholdProgressBar.setImageNamed("watchThresholdPercent-")
+        let ratio = SharedData.sharedInstance.totalMoney/Double(SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].upgradeButtonCost) * 100
+        
+        thresholdProgressBar.startAnimatingWithImages(in: NSMakeRange(Int(ratio), 1), duration: 1, repeatCount: 1)
     }
-    
     
     @IBAction func upgradeButton() {
         
@@ -38,6 +42,9 @@ class UpgradeInterfaceController: WKInterfaceController {
             SharedData.sharedInstance.upgradeLevel += 1
             SharedData.sharedInstance.totalMoney = SharedData.sharedInstance.totalMoney - 500
             animateThreshold()
+            currentPosLabel.setText(SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].name)
+            upgradeCostLabel.setText("$\(SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].upgradeButtonCost)")
+            
             
             
 
@@ -111,6 +118,8 @@ class UpgradeInterfaceController: WKInterfaceController {
     
     override func awake(withContext context: Any?) {
               super.awake(withContext: context)
+        upgradeCostLabel.setText("$\(SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].upgradeButtonCost)")
+        currentPosLabel.setText(SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].name)
     
        print(SharedData.sharedInstance.totalMoney)
         
@@ -125,7 +134,7 @@ class UpgradeInterfaceController: WKInterfaceController {
             
         }
         if SharedData.sharedInstance.totalMoney <= 0 {
-                   thresholdProgressBar.setImageNamed("JanitorThreshold-0")
+                   thresholdProgressBar.setImageNamed("watchThresholdPercent-0")
                }
             
           }
@@ -177,7 +186,9 @@ class UpgradeInterfaceController: WKInterfaceController {
     override func willActivate() {
         super.willActivate()
              animateThreshold()
-        
+            currentPosLabel.setText(SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].name)
+
+            
     }
     }
     

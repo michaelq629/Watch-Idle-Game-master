@@ -37,11 +37,11 @@ class SharedData {
        
         
         
-        let janitor = Position.init(name: "Janitor", image: "janitor", upgradeButtonText: "Warehouse", upgradeButtonImage: "warehouseUpgrade", upgradeButtonCostText: "$500", gambles: [gamble1, gamble2] ,  earningRate: 10, earningQuad: [0.025, 0.050, 0.075, 0.01])
+        let janitor = Position.init(name: "Janitor", image: "janitor", upgradeButtonText: "Warehouse", upgradeButtonImage: "warehouseUpgrade", upgradeButtonCost: 500, gambles: [gamble1, gamble2] ,  earningRate: 10, earningQuad: [0.025, 0.050, 0.075, 0.01])
         
         
         
-        let warehouse = Position.init(name: "Warehouse", image: "janitor", upgradeButtonText: "Warehouse", upgradeButtonImage: "warehouseUpgrade", upgradeButtonCostText: "$500", gambles: [gamble1] ,  earningRate: 100, earningQuad: [0.25, 0.50, 0.75, 0.1])
+        let warehouse = Position.init(name: "Warehouse", image: "janitor", upgradeButtonText: "Warehouse", upgradeButtonImage: "warehouseUpgrade", upgradeButtonCost: 500, gambles: [gamble1] ,  earningRate: 100, earningQuad: [0.25, 0.50, 0.75, 0.1])
         positionsArray.append(janitor)
           positionsArray.append(warehouse)
         print(positionsArray)
