@@ -118,7 +118,6 @@ class UpgradeInterfaceController: WKInterfaceController {
     
     override func awake(withContext context: Any?) {
               super.awake(withContext: context)
-        upgradeCostLabel.setText("$\(SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].upgradeButtonCost)")
         currentPosLabel.setText(SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].name)
     
        print(SharedData.sharedInstance.totalMoney)
