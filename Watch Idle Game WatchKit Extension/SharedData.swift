@@ -31,13 +31,13 @@ class SharedData {
     
     
     private init() {
-        let gamble1 = Gamble.init(name: "Sell broom from work", image: "broom", profitPossibility: 100, winOrLossText: ["Wow, you won", "Wow, you lost"], profitOrLossAmount: [500,-100] )
-         let gamble2 = Gamble.init(name: "Gamble in the casino", image: "casino", profitPossibility: 1, winOrLossText: ["Wow, you won", "Wow, you lost"], profitOrLossAmount: [200,-1000] )
-        
+        let gamble1 = Gamble.init(name: "Sell broom from work", image: "broom", profitPossibility: 90, winOrLossText: ["Wow, you won", "Wow, you lost"], profitOrLossAmount: [500,-100] )
+         let gamble2 = Gamble.init(name: "Gamble in the casino", image: "casino", profitPossibility: 50, winOrLossText: ["Wow, you won", "Wow, you lost"], profitOrLossAmount: [500,-1000] )
+        let gamble3 = Gamble.init(name: "Pickpocket Salesman", image: "pickPocketJan", profitPossibility: 50, winOrLossText: ["Wow, you won", "Wow, you lost"], profitOrLossAmount: [50,-100])
        
         
         
-        let janitor = Position.init(name: "Janitor", image: "janitor", upgradeButtonText: "Warehouse", upgradeButtonImage: "warehouseUpgrade", upgradeButtonCost: 500, gambles: [gamble1, gamble2] ,  earningRate: 10, earningQuad: [0.025, 0.050, 0.075, 0.01])
+        let janitor = Position.init(name: "Janitor", image: "janitor", upgradeButtonText: "Warehouse", upgradeButtonImage: "warehouseUpgrade", upgradeButtonCost: 500, gambles: [gamble1, gamble2, gamble3] ,  earningRate: 10, earningQuad: [0.025, 0.050, 0.075, 0.01])
         
         
         
