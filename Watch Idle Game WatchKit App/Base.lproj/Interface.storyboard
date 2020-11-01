@@ -1,61 +1,156 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16097" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc" pageOrientation="vertical">
-    <device id="watch44"/>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="17156" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc" pageOrientation="vertical">
+    <device id="watch40"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="16012"/>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="17034"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="VetteLetters - DBXLNightfever Wide.otf">
-            <string>DBXLNightfever-Wide</string>
-        </array>
-    </customFonts>
     <scenes>
+        <!--OnboardingFirstPage-->
+        <scene sceneID="Y6d-1a-42q">
+            <objects>
+                <controller identifier="OnboardingFirstPage" id="dDe-WE-zxP">
+                    <items>
+                        <label alignment="center" verticalAlignment="bottom" text="Scroll to make money " textAlignment="center" numberOfLines="0" id="c4N-hP-HC8"/>
+                        <imageView alignment="left" image="Scroll to make money " id="KCj-D9-qeA"/>
+                    </items>
+                    <connections>
+                        <segue destination="EMz-ZO-hFE" kind="relationship" relationship="nextPage" id="xRA-QH-poE"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-1046" y="104"/>
+        </scene>
+        <!--OnboardingSecondPage-->
+        <scene sceneID="RfG-OH-qSs">
+            <objects>
+                <controller identifier="OnboardingSecondPage" id="EMz-ZO-hFE">
+                    <items>
+                        <label alignment="center" verticalAlignment="bottom" text="You can buy an upgrade to a higher position" textAlignment="center" numberOfLines="0" id="Vl1-Hx-XOZ"/>
+                        <imageView alignment="left" image="Upgrade" id="nOC-ef-8kr"/>
+                    </items>
+                    <connections>
+                        <segue destination="4XJ-YO-sQ2" kind="relationship" relationship="nextPage" id="ygp-Uw-1TW"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-829" y="104"/>
+        </scene>
+        <!--OnboardingThirdPage-->
+        <scene sceneID="53Y-lv-EAi">
+            <objects>
+                <controller identifier="OnboardingThirdPage" id="4XJ-YO-sQ2">
+                    <items>
+                        <label alignment="center" verticalAlignment="bottom" text="The higher your position, the faster you earn " textAlignment="center" numberOfLines="0" id="bzJ-20-n7q"/>
+                        <imageView alignment="left" image="higher position faster earn" id="2lZ-VA-Lha"/>
+                    </items>
+                    <connections>
+                        <segue destination="3ef-kT-kDx" kind="relationship" relationship="nextPage" id="fa4-qE-dIU"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-600" y="100"/>
+        </scene>
+        <!--OnboardingFourthPage-->
+        <scene sceneID="WWv-fU-gb7">
+            <objects>
+                <controller identifier="OnboardingFourthPage" id="3ef-kT-kDx">
+                    <items>
+                        <label alignment="center" verticalAlignment="bottom" text="Participate in activties to earn bonuses" textAlignment="center" numberOfLines="0" id="0wx-KC-wvt"/>
+                        <imageView alignment="left" image="participate in activities" id="xNW-Us-DqO"/>
+                    </items>
+                    <connections>
+                        <segue destination="DUO-ug-Pxw" kind="relationship" relationship="nextPage" id="gPg-hy-2wd"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-398" y="100"/>
+        </scene>
+        <!--OnboardingFifthPage-->
+        <scene sceneID="cCX-JM-ORp">
+            <objects>
+                <controller identifier="OnboardingFifthPage" id="DUO-ug-Pxw">
+                    <items>
+                        <label alignment="center" verticalAlignment="bottom" text="Warning! You might get demoted or lose money if you do these activities" textAlignment="center" numberOfLines="0" id="uGP-Jp-2IS"/>
+                        <imageView alignment="left" image="Warning, you might lose money" id="KQ5-6C-dFC"/>
+                    </items>
+                    <connections>
+                        <segue destination="dHp-He-RLe" kind="relationship" relationship="nextPage" id="Pw1-qU-rHA"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-192" y="99"/>
+        </scene>
+        <!--OnboardingSixthPage-->
+        <scene sceneID="dKV-ts-sRr">
+            <objects>
+                <controller identifier="OnboardingSixthPage" id="dHp-He-RLe" customClass="OnboardingPage" customModule="Watch_Idle_Game_WatchKit_Extension">
+                    <items>
+                        <label alignment="center" verticalAlignment="bottom" text="Work your way up to CEO" textAlignment="center" numberOfLines="0" id="8Ss-IC-e2K"/>
+                        <button width="1" alignment="left" verticalAlignment="center" title="Get to work!" id="xB9-AZ-ym9">
+                            <connections>
+                                <action selector="finishOnboarding" destination="dHp-He-RLe" id="4CY-2n-fuX"/>
+                                <segue destination="AgC-eL-Hgc" kind="push" id="gZb-x3-0Zv"/>
+                            </connections>
+                        </button>
+                        <imageView alignment="left" image="Work your way up to CEO" id="3RN-mq-2Pq"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="24" y="99"/>
+        </scene>
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller fullBounds="YES" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Watch_Idle_Game_WatchKit_App" customModuleProvider="target">
+                <controller fullBounds="YES" fullScreen="YES" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Watch_Idle_Game_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <label width="1" height="126" alignment="center" text="Label" textAlignment="center" id="5zN-mC-IeU">
-                            <fontDescription key="font" name="DBXLNightfever-Wide" family="DBXLNightfever" pointSize="47"/>
-                            <variation key="device=watch38mm">
-                                <fontDescription key="font" type="system" pointSize="18"/>
-                            </variation>
-                        </label>
-                        <group width="1" alignment="left" verticalAlignment="bottom" id="2B4-xD-YRd">
+                        <group width="1" alignment="left" verticalAlignment="center" id="6XH-Lc-m4B">
                             <items>
-                                <group width="1" widthAdjustment="-83" height="1" heightAdjustment="15" alignment="left" verticalAlignment="bottom" id="G9a-ib-s0v">
-                                    <items>
-                                        <label height="1" alignment="center" verticalAlignment="bottom" text="Janitor" textAlignment="center" id="GeB-t5-ly4">
-                                            <fontDescription key="font" type="system" pointSize="15"/>
-                                            <variation key="device=watch38mm">
-                                                <fontDescription key="font" type="system" pointSize="8"/>
-                                            </variation>
-                                        </label>
-                                        <imageView width="25" height="0.90000000000000002" heightAdjustment="5" alignment="left" verticalAlignment="bottom" image="janitor" contentMode="scaleAspectFit" id="NOh-WF-F8t">
-                                            <variation key="device=watch38mm" width="15"/>
-                                        </imageView>
-                                    </items>
-                                    <variation key="device=watch38mm" heightAdjustment="-6"/>
-                                </group>
-                                <group width="80" height="58" alignment="left" verticalAlignment="bottom" id="tJ8-GX-JA5">
-                                    <items>
-                                        <button width="1" height="1" heightAdjustment="-11" alignment="right" title="Upgrades" id="EZT-AA-pr8">
-                                            <fontDescription key="font" type="system" pointSize="15"/>
-                                            <variation key="device=watch38mm">
-                                                <fontDescription key="font" type="system" pointSize="8"/>
-                                            </variation>
-                                            <connections>
-                                                <action selector="upgradeButton" destination="AgC-eL-Hgc" id="tty-qF-5Ee"/>
-                                            </connections>
-                                        </button>
-                                    </items>
-                                    <variation key="device=watch38mm" height="38"/>
-                                </group>
+                                <label width="1" height="90" alignment="center" verticalAlignment="center" text="Label" textAlignment="center" minimumScaleFactor="0.0" id="5zN-mC-IeU">
+                                    <fontDescription key="font" style="UICTFontTextStyleTitle0"/>
+                                    <variation key="device=watch38mm" height="60"/>
+                                    <variation key="device=watch40mm" height="74"/>
+                                    <variation key="device=watch42mm" height="70"/>
+                                </label>
                             </items>
                         </group>
+                        <group width="1" alignment="left" verticalAlignment="center" id="XkC-Uk-jgd">
+                            <items>
+                                <button width="163" height="35" alignment="center" verticalAlignment="center" alpha="0.84999999999999998" title="Upgrades" id="EZT-AA-pr8">
+                                    <fontDescription key="font" type="system" pointSize="15"/>
+                                    <variation key="device=watch40mm" height="40" width="134"/>
+                                    <variation key="device=watch42mm" width="135"/>
+                                    <connections>
+                                        <action selector="upgradeButton" destination="AgC-eL-Hgc" id="tty-qF-5Ee"/>
+                                    </connections>
+                                </button>
+                            </items>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </group>
+                        <group width="1" height="41" alignment="left" layout="vertical" id="2B4-xD-YRd">
+                            <items>
+                                <group width="186" height="48" alignment="center" id="G9a-ib-s0v">
+                                    <items>
+                                        <imageView width="50" height="40" alignment="left" verticalAlignment="center" image="janitor" contentMode="scaleAspectFit" id="NOh-WF-F8t">
+                                            <variation key="device=watch40mm" height="38" width="38"/>
+                                        </imageView>
+                                        <label alignment="right" verticalAlignment="center" text="Regional Manager" textAlignment="center" numberOfLines="0" minimumScaleFactor="0.80000000000000004" id="GeB-t5-ly4">
+                                            <fontDescription key="font" type="system" weight="light" pointSize="22"/>
+                                            <variation key="device=watch38mm">
+                                                <fontDescription key="font" type="system" weight="light" pointSize="15"/>
+                                            </variation>
+                                            <variation key="device=watch40mm">
+                                                <fontDescription key="font" type="system" weight="light" pointSize="20"/>
+                                            </variation>
+                                        </label>
+                                    </items>
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </group>
+                            </items>
+                            <variation key="device=watch40mm" height="38"/>
+                        </group>
                     </items>
-                    <edgeInsets key="margins" left="2" right="2" top="0.0" bottom="0.0"/>
                     <variation key="device=watch38mm">
                         <nil key="title"/>
                     </variation>
@@ -66,76 +161,67 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="218.78260869565216" y="222.36607142857144"/>
-        </scene>
-        <!--Static Notification Interface Controller-->
-        <scene sceneID="AEw-b0-oYE">
-            <objects>
-                <notificationController id="YCC-NB-fut">
-                    <items>
-                        <label alignment="left" text="Alert Label" numberOfLines="0" id="IdU-wH-bcW"/>
-                    </items>
-                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
-                    <connections>
-                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
-                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
-                        <segue destination="eXb-UN-Cd0" kind="relationship" relationship="dynamicInteractiveNotificationInterface" id="mpB-YA-K8N"/>
-                    </connections>
-                </notificationController>
-            </objects>
-            <point key="canvasLocation" x="220" y="643"/>
-        </scene>
-        <!--Notification Controller-->
-        <scene sceneID="ZPc-GJ-vnh">
-            <objects>
-                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="Watch_Idle_Game_WatchKit_App" customModuleProvider="target"/>
-            </objects>
-            <point key="canvasLocation" x="468" y="643"/>
+            <point key="canvasLocation" x="295.65217391304344" y="152.54464285714286"/>
         </scene>
         <!--UpgradeInterfaceController-->
         <scene sceneID="iAx-sy-zo7">
             <objects>
                 <controller identifier="UpgradeInterfaceController" id="50A-RC-wsj" customClass="UpgradeInterfaceController" customModule="Watch_Idle_Game_WatchKit_Extension">
                     <items>
-                        <group width="1" height="79" alignment="left" id="EfS-QS-VHQ">
+                        <group width="1" alignment="left" id="EfS-QS-VHQ">
                             <items>
-                                <group width="105" height="74" alignment="left" layout="overlap" id="lwn-e4-2tg">
+                                <group alignment="left" layout="vertical" id="lwn-e4-2tg">
                                     <items>
-                                        <group width="100" height="30" alignment="right" verticalAlignment="bottom" layout="overlap" id="ws4-yP-zxv">
+                                        <button width="1" widthAdjustment="-5" height="34" alignment="center" verticalAlignment="bottom" title="Upgrade" id="6R3-Qk-wN1">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <variation key="device=watch38mm">
+                                                <fontDescription key="font" type="system" pointSize="13"/>
+                                            </variation>
+                                            <variation key="device=watch42mm">
+                                                <fontDescription key="font" type="system" pointSize="14"/>
+                                            </variation>
+                                            <connections>
+                                                <action selector="upgradeButton" destination="50A-RC-wsj" id="vaQ-zG-G3y"/>
+                                            </connections>
+                                        </button>
+                                        <group width="1" alignment="left" id="26H-Wy-RkS">
                                             <items>
-                                                <button width="1" height="1" alignment="right" verticalAlignment="center" title="Upgrade" id="6R3-Qk-wN1">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
-                                                    <connections>
-                                                        <action selector="upgradeButton" destination="50A-RC-wsj" id="vaQ-zG-G3y"/>
-                                                    </connections>
-                                                </button>
+                                                <label alignment="center" verticalAlignment="center" text="Warehouse" numberOfLines="0" id="vIb-a5-WMs">
+                                                    <fontDescription key="font" type="system" pointSize="14"/>
+                                                    <variation key="device=watch38mm">
+                                                        <fontDescription key="font" type="system" pointSize="7"/>
+                                                    </variation>
+                                                    <variation key="device=watch40mm">
+                                                        <fontDescription key="font" type="system" pointSize="9"/>
+                                                    </variation>
+                                                    <variation key="device=watch42mm">
+                                                        <fontDescription key="font" type="system" pointSize="8"/>
+                                                    </variation>
+                                                </label>
+                                                <imageView width="30" height="32" alignment="left" image="janitor" id="YU6-jN-jS8"/>
                                             </items>
                                         </group>
-                                        <imageView width="42" height="38" alignment="left" image="warehouseUpgrade" id="YU6-jN-jS8"/>
-                                        <label width="63" height="42" alignment="right" text="Label" id="vIb-a5-WMs"/>
                                     </items>
                                 </group>
                                 <group width="74" height="79" alignment="left" layout="overlap" id="c54-lq-EYB">
                                     <items>
-                                        <imageView width="86" height="81" alignment="center" image="watchThresholdPercent-0" contentMode="scaleAspectFit" id="7bV-sd-038"/>
+                                        <imageView width="86" height="81" alignment="center" image="watchThresholdPercent-0" contentMode="scaleAspectFit" id="7bV-sd-038">
+                                            <variation key="device=watch38mm" height="79" width="55"/>
+                                        </imageView>
                                     </items>
+                                    <variation key="device=watch38mm" width="59"/>
                                 </group>
                             </items>
                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </group>
-                        <group width="1" height="64" alignment="left" id="9EC-eN-tXQ">
-                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </group>
-                        <table alignment="left" verticalAlignment="bottom" id="NAN-5a-F5z">
+                        <table alignment="left" verticalAlignment="center" id="NAN-5a-F5z">
                             <items>
                                 <tableRow identifier="RowController" id="I2s-5u-4sU" customClass="RowController" customModule="Watch_Idle_Game_WatchKit_Extension">
                                     <group key="rootItem" width="1" alignment="left" id="mS7-3s-IIX">
                                         <items>
-                                            <imageView width="1" widthAdjustment="-137" height="1" alignment="left" image="pickpocket" contentMode="scaleAspectFit" id="sez-c4-nAB">
-                                                <variation key="device=watch38mm" widthAdjustment="-95"/>
-                                            </imageView>
-                                            <label width="1" widthAdjustment="-19" height="1" alignment="left" text="Label" id="3hf-c7-aJG">
+                                            <imageView height="1" alignment="left" image="pickpocket" contentMode="scaleAspectFit" id="sez-c4-nAB"/>
+                                            <label width="1" widthAdjustment="-19" height="1" alignment="left" text="Label" numberOfLines="0" id="3hf-c7-aJG">
                                                 <fontDescription key="font" type="system" pointSize="12"/>
                                                 <variation key="device=watch38mm" widthAdjustment="-14">
                                                     <fontDescription key="font" type="system" pointSize="10"/>
@@ -160,36 +246,34 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="516.6521739130435" y="54.642857142857146"/>
+            <point key="canvasLocation" x="588" y="135"/>
         </scene>
         <!--gambleResult-->
         <scene sceneID="eVl-tx-nsn">
             <objects>
-                <controller identifier="gambleResult" id="fr4-sg-BQR" customClass="gambleResult" customModule="Watch_Idle_Game_WatchKit_Extension">
+                <controller identifier="gambleResult" id="fr4-sg-BQR" customClass="GambleResult" customModule="Watch_Idle_Game_WatchKit_Extension">
                     <items>
-                        <label width="136" height="65" alignment="left" text="Label" id="2PK-Om-d2f"/>
-                        <label width="136" height="82" alignment="left" text="Label" id="46K-NA-0eP"/>
+                        <label alignment="center" text="You were fired and lost 400$ because your stupidly got caught " textAlignment="left" numberOfLines="0" id="Pz0-5j-7Ki" customClass="Gamble">
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                        </label>
                     </items>
                     <connections>
-                        <outlet property="moneyLossLabel" destination="46K-NA-0eP" id="9fN-JR-pH8"/>
-                        <outlet property="winOrLossLabel" destination="2PK-Om-d2f" id="BkS-GT-h7O"/>
+                        <outlet property="storyLabel" destination="Pz0-5j-7Ki" id="lVc-Vc-90X"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="776.82608695652175" y="50.848214285714285"/>
-        </scene>
-        <!--Notification Controller-->
-        <scene sceneID="Niz-AI-uX2">
-            <objects>
-                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="Watch_Idle_Game_WatchKit_App" customModuleProvider="target"/>
-            </objects>
-            <point key="canvasLocation" x="468" y="345"/>
+            <point key="canvasLocation" x="827" y="134"/>
         </scene>
     </scenes>
     <resources>
-        <image name="janitor" width="106" height="133"/>
+        <image name="Scroll to make money " width="736" height="560"/>
+        <image name="Upgrade" width="736" height="560"/>
+        <image name="Warning, you might lose money" width="736" height="560"/>
+        <image name="Work your way up to CEO" width="736" height="560"/>
+        <image name="higher position faster earn" width="736" height="560"/>
+        <image name="janitor" width="160" height="160"/>
+        <image name="participate in activities" width="736" height="560"/>
         <image name="pickpocket" width="120" height="120"/>
-        <image name="warehouseUpgrade" width="120" height="120"/>
         <image name="watchThresholdPercent-0" width="300" height="300"/>
     </resources>
 </document>

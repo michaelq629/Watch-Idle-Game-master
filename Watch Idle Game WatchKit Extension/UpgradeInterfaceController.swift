@@ -11,7 +11,7 @@ import WatchKit
 class UpgradeInterfaceController: WKInterfaceController {
     
     var money = 0
-   
+    
     @IBOutlet weak var upgradeCostLabel: WKInterfaceLabel!
     @IBOutlet weak var currentPosLabel: WKInterfaceLabel!
     @IBOutlet weak var currentPosPic: WKInterfaceImage!
@@ -21,74 +21,54 @@ class UpgradeInterfaceController: WKInterfaceController {
     @IBOutlet weak var upgradeButtonOutlet: WKInterfaceButton!
     
     var currentPosition : Position?
-
+    var selectedGambleIndex : Int?
     
     func animateThreshold () {
+        
         thresholdProgressBar.setImageNamed("watchThresholdPercent-")
         let ratio = SharedData.sharedInstance.totalMoney/Double(SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].upgradeButtonCost) * 100
         
         thresholdProgressBar.startAnimatingWithImages(in: NSMakeRange(Int(ratio), 1), duration: 1, repeatCount: 1)
+        
+        if SharedData.sharedInstance.totalMoney <= 0 {
+            thresholdProgressBar.setImageNamed("watchThresholdPercent-0")
+            
+        }
+        if Int(SharedData.sharedInstance.totalMoney) >= SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].upgradeButtonCost {
+            thresholdProgressBar.setImageNamed("watchThresholdPercent-100")
+        }
+        
     }
     
     @IBAction func upgradeButton() {
         
-      print(SharedData.sharedInstance.upgradeLevel)
+        print(SharedData.sharedInstance.upgradeLevel)
         print(SharedData.sharedInstance.totalMoney)
         
         
         
-        if SharedData.sharedInstance.upgradeLevel == 0 && SharedData.sharedInstance.totalMoney >= 500{
+        if SharedData.sharedInstance.upgradeLevel == 0 && SharedData.sharedInstance.totalMoney >= Double(SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].upgradeButtonCost){
             SharedData.sharedInstance.justPurchased = true
+            SharedData.sharedInstance.totalMoney = SharedData.sharedInstance.totalMoney - Double(SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].upgradeButtonCost)
             SharedData.sharedInstance.upgradeLevel += 1
-            SharedData.sharedInstance.totalMoney = SharedData.sharedInstance.totalMoney - 500
             animateThreshold()
-            currentPosLabel.setText(SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].name)
-            upgradeCostLabel.setText("$\(SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].upgradeButtonCost)")
+           resetStuff()
+            WKInterfaceDevice.current().play(.success)
+            loadTableData()
+            SharedData.sharedInstance.defaults!.setValue(SharedData.sharedInstance.upgradeLevel, forKey: "level")
+            
+            
+            //             let indexes = NSIndexSet(index: SharedData.sharedInstance.gambleTableViewIndex - 1)
+            //            for i in indexes {
+            //                tableView.removeRows(at: indexes as IndexSet)
+            //            }
             
             
             
-
+            
             
             animate(withDuration: 0.2) {
-                         self.upgradeButtonOutlet.setBackgroundColor(UIColor.green)
-                     }
-                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.21) {
-                         self.animate(withDuration: 0.2) {
-                             self.upgradeButtonOutlet.setBackgroundColor(UIColor.init(red: 31/100, green: 33/100, blue: 36/100, alpha: 1))
-                         }
-                     }
-                     
-                        
-        }
-        
-        
-       else if  SharedData.sharedInstance.upgradeLevel == 1 &&  SharedData.sharedInstance.totalMoney >= 1000 {
-                   SharedData.sharedInstance.justPurchased = true
-                   SharedData.sharedInstance.upgradeLevel += 1
-                   SharedData.sharedInstance.totalMoney = SharedData.sharedInstance.totalMoney - 1000
-                  animateThreshold()
-                
-            animate(withDuration: 0.2) {
-                         self.upgradeButtonOutlet.setBackgroundColor(UIColor.green)
-                     }
-                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.21) {
-                         self.animate(withDuration: 0.2) {
-                             self.upgradeButtonOutlet.setBackgroundColor(UIColor.init(red: 31/100, green: 33/100, blue: 36/100, alpha: 1))
-                         }
-                     }
-                     
-               }
-  
-            
-    
-        
-        
-        
-        else {
-            
-            
-         animate(withDuration: 0.2) {
-                self.upgradeButtonOutlet.setBackgroundColor(UIColor.red)
+                self.upgradeButtonOutlet.setBackgroundColor(UIColor.green)
             }
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.21) {
                 self.animate(withDuration: 0.2) {
@@ -96,100 +76,221 @@ class UpgradeInterfaceController: WKInterfaceController {
                 }
             }
             
-
-    }
             
+        }
+        else  if SharedData.sharedInstance.upgradeLevel == 1 && SharedData.sharedInstance.totalMoney >= Double(SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].upgradeButtonCost){
+            SharedData.sharedInstance.justPurchased = true
+            
+            SharedData.sharedInstance.totalMoney = SharedData.sharedInstance.totalMoney - Double(SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].upgradeButtonCost)
+            SharedData.sharedInstance.upgradeLevel += 1
+            animateThreshold()
+           resetStuff()
+            WKInterfaceDevice.current().play(.success)
+            SharedData.sharedInstance.defaults!.setValue(SharedData.sharedInstance.upgradeLevel, forKey: "level")
+
+            loadTableData()
+//
+            
+            
+            animate(withDuration: 0.2) {
+                self.upgradeButtonOutlet.setBackgroundColor(UIColor.green)
+            }
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.21) {
+                self.animate(withDuration: 0.2) {
+                    self.upgradeButtonOutlet.setBackgroundColor(UIColor.init(red: 31/100, green: 33/100, blue: 36/100, alpha: 1))
+                }
+            }
+            
+            
+        }
+        
+        else if SharedData.sharedInstance.upgradeLevel == 2 && SharedData.sharedInstance.totalMoney >= Double(SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].upgradeButtonCost){
+            SharedData.sharedInstance.justPurchased = true
+            
+            SharedData.sharedInstance.totalMoney = SharedData.sharedInstance.totalMoney - Double(SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].upgradeButtonCost)
+            SharedData.sharedInstance.upgradeLevel += 1
+            animateThreshold()
+           resetStuff()
+            WKInterfaceDevice.current().play(.success)
+            SharedData.sharedInstance.defaults!.setValue(SharedData.sharedInstance.upgradeLevel, forKey: "level")
+
+            loadTableData()
+
+            
+            
+            animate(withDuration: 0.2) {
+                self.upgradeButtonOutlet.setBackgroundColor(UIColor.green)
+            }
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.21) {
+                self.animate(withDuration: 0.2) {
+                    self.upgradeButtonOutlet.setBackgroundColor(UIColor.init(red: 31/100, green: 33/100, blue: 36/100, alpha: 1))
+                }
+            }
+            
+            
+        }
+        
+        else if SharedData.sharedInstance.upgradeLevel == 3 && SharedData.sharedInstance.totalMoney >= Double(SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].upgradeButtonCost){
+            SharedData.sharedInstance.justPurchased = true
+            
+            SharedData.sharedInstance.totalMoney = SharedData.sharedInstance.totalMoney - Double(SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].upgradeButtonCost)
+            SharedData.sharedInstance.upgradeLevel += 1
+            animateThreshold()
+           resetStuff()
+            WKInterfaceDevice.current().play(.success)
+            loadTableData()
+            SharedData.sharedInstance.defaults!.setValue(SharedData.sharedInstance.upgradeLevel, forKey: "level")
+
+            
+            
+            
+            animate(withDuration: 0.2) {
+                self.upgradeButtonOutlet.setBackgroundColor(UIColor.green)
+            }
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.21) {
+                self.animate(withDuration: 0.2) {
+                    self.upgradeButtonOutlet.setBackgroundColor(UIColor.init(red: 31/100, green: 33/100, blue: 36/100, alpha: 1))
+                }
+            }
+            
+            
+        }
+        
+        else if SharedData.sharedInstance.upgradeLevel == 4 && SharedData.sharedInstance.totalMoney >= Double(SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].upgradeButtonCost){
+            SharedData.sharedInstance.justPurchased = true
+            
+            SharedData.sharedInstance.totalMoney = SharedData.sharedInstance.totalMoney - Double(SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].upgradeButtonCost)
+            SharedData.sharedInstance.upgradeLevel += 1
+            animateThreshold()
+           resetStuff()
+            WKInterfaceDevice.current().play(.success)
+            SharedData.sharedInstance.defaults!.setValue(SharedData.sharedInstance.upgradeLevel, forKey: "level")
+
+            loadTableData()
+            
+            
+            
+            animate(withDuration: 0.2) {
+                self.upgradeButtonOutlet.setBackgroundColor(UIColor.green)
+            }
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.21) {
+                self.animate(withDuration: 0.2) {
+                    self.upgradeButtonOutlet.setBackgroundColor(UIColor.init(red: 31/100, green: 33/100, blue: 36/100, alpha: 1))
+                }
+            }
+            
+            
+        }
+        
+        
+        
+        
+        
+        
+        
+        else {
+            
+            
+            animate(withDuration: 0.2) {
+                self.upgradeButtonOutlet.setBackgroundColor(UIColor.red)
+                WKInterfaceDevice.current().play(.failure)
+            }
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.21) {
+                self.animate(withDuration: 0.2) {
+                    self.upgradeButtonOutlet.setBackgroundColor(UIColor.black)
+                }
+            }
+            
+            
+        }
+        
         
     }
     
     
- 
-    
-
-       
     
     
     
     
     
     
-//    let janitorUpgradeNames = ["Sell broom from work", "Pickpocket CEO", "Pickpocket Salesman", "Gamble in the casino"]
-//    let janitorUpgradeImages = ["broom", "pickpocket", "pickpocket", "casino"]
+    
+    
+    
+    
+    //
     
     override func awake(withContext context: Any?) {
-              super.awake(withContext: context)
+ 
+        currentPosPic.setImageNamed(SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].image)
         currentPosLabel.setText(SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].name)
-    
-       print(SharedData.sharedInstance.totalMoney)
         
         currentPosition = SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel]
         loadTableData()
         animateThreshold()
-        let indexes = NSIndexSet(index: SharedData.sharedInstance.gambleTableViewIndex)
         
-        for i in SharedData.sharedInstance.gambleTableViewDeletedCells {
-            
-            tableView.removeRows(at: indexes as IndexSet)
-            
-        }
         if SharedData.sharedInstance.totalMoney <= 0 {
-                   thresholdProgressBar.setImageNamed("watchThresholdPercent-0")
-               }
-            
-          }
+            thresholdProgressBar.setImageNamed("watchThresholdPercent-0")
+        }
+        
+        
+    }
     
-   
+    
+    
     
     
     
     override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
+          
+        
+        selectedGambleIndex = rowIndex
+        print(selectedGambleIndex)
+        pushController(withName: "gambleResult", context: selectedGambleIndex)
+        WKInterfaceDevice.current().play(.click)
+//        let indexes = NSIndexSet(index: rowIndex)
+//        tableView.removeRows(at: indexes as IndexSet)
+       
+       
         
         
-            SharedData.sharedInstance.gambleTableViewIndex = rowIndex
-            pushController(withName: "gambleResult", context: Any?.self)
-            let indexes = NSIndexSet(index: rowIndex)
-            tableView.removeRows(at: indexes as IndexSet)
-        SharedData.sharedInstance.gambleTableViewDeletedCells.append(0)
-         
+        
+        
         
     }
-    
     
     
     private func loadTableData() {
-        if let currentPos = currentPosition {
+        
+        
+        
+        tableView.setNumberOfRows(SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].gambles.count, withRowType: "RowController")
+        
+        for (index, gamble) in SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].gambles.enumerated() {
             
-
-            tableView.setNumberOfRows(currentPos.gambles.count, withRowType: "RowController")
-            
-            for (index, gamble) in currentPos.gambles.enumerated() {
+            if let rowController = tableView.rowController(at: index) as? RowController {
+                rowController.upgradeLabel.setText(gamble.name)
+                rowController.upgradeImage.setImageNamed(gamble.image)
                 
-                if let rowController = tableView.rowController(at: index) as? RowController {
-                    rowController.upgradeLabel.setText(gamble.name)
-                    rowController.upgradeImage.setImageNamed(gamble.image)
-                    
-                }
-                     }
-            
-            
-            
+            }
         }
-        
-        
-        
-            
-            
-            
-        }
+    }
+    
+    
     
     override func willActivate() {
         super.willActivate()
-             animateThreshold()
-            currentPosLabel.setText(SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].name)
+        animateThreshold()
+        resetStuff()
+        loadTableData()
+    }
+    
+    func resetStuff (){
+        currentPosPic.setImageNamed(SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].image)
+        currentPosLabel.setText(SharedData.sharedInstance.positionsArray[SharedData.sharedInstance.upgradeLevel].name)
+    
+    }
+}
 
-            
-    }
-    }
-    
-    
- 
+
+

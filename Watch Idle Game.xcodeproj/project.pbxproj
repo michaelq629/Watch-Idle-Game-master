@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C40261C249C4F1100B25046 /* gambleResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C40261B249C4F1100B25046 /* gambleResult.swift */; };
+		4C40261C249C4F1100B25046 /* GambleResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C40261B249C4F1100B25046 /* GambleResult.swift */; };
 		4C6383572477237800CF93B4 /* UpgradeInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6383562477237800CF93B4 /* UpgradeInterfaceController.swift */; };
 		4C736AF92480646E00386E70 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C736AF82480646E00386E70 /* Position.swift */; };
 		4C9FCEAE245B71FB002FE3F1 /* Watch Idle Game WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 4C9FCEAD245B71FB002FE3F1 /* Watch Idle Game WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -18,6 +18,7 @@
 		4C9FCEC6245B71FF002FE3F1 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9FCEC5245B71FF002FE3F1 /* NotificationController.swift */; };
 		4C9FCEC8245B7200002FE3F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C9FCEC7245B7200002FE3F1 /* Assets.xcassets */; };
 		4CACAF91247DE04000BBBCDA /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CACAF90247DE04000BBBCDA /* Media.xcassets */; };
+		4CD290802517D87300BE17B9 /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD2907F2517D87300BE17B9 /* OnboardingPage.swift */; };
 		4CD8F395247DBB0C00A637A2 /* RowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD8F394247DBB0C00A637A2 /* RowController.swift */; };
 		4CEFDD4A24A1C3E800B44773 /* VetteLetters - DBXLNightfever Wide.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4CEFDD4924A1C3E800B44773 /* VetteLetters - DBXLNightfever Wide.otf */; };
 		4CEFDD4B24A1C3E800B44773 /* VetteLetters - DBXLNightfever Wide.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4CEFDD4924A1C3E800B44773 /* VetteLetters - DBXLNightfever Wide.otf */; };
@@ -68,7 +69,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4C40261B249C4F1100B25046 /* gambleResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gambleResult.swift; sourceTree = "<group>"; };
+		4C40261B249C4F1100B25046 /* GambleResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GambleResult.swift; sourceTree = "<group>"; };
 		4C6383562477237800CF93B4 /* UpgradeInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeInterfaceController.swift; sourceTree = "<group>"; };
 		4C736AF82480646E00386E70 /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		4C9FCEA9245B71FB002FE3F1 /* Watch Idle Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Watch Idle Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +84,7 @@
 		4C9FCEC9245B7200002FE3F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C9FCECA245B7200002FE3F1 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		4CACAF90247DE04000BBBCDA /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = ../../../Desktop/Assets.xcassets/Media.xcassets; sourceTree = "<group>"; };
+		4CD2907F2517D87300BE17B9 /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
 		4CD8F394247DBB0C00A637A2 /* RowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowController.swift; sourceTree = "<group>"; };
 		4CEFDD4924A1C3E800B44773 /* VetteLetters - DBXLNightfever Wide.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VetteLetters - DBXLNightfever Wide.otf"; sourceTree = "<group>"; };
 		4CF77FEC248990010054E4AA /* SharedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
@@ -136,7 +138,8 @@
 				4C9FCEC1245B71FF002FE3F1 /* InterfaceController.swift */,
 				4CF77FEC248990010054E4AA /* SharedData.swift */,
 				4C6383562477237800CF93B4 /* UpgradeInterfaceController.swift */,
-				4C40261B249C4F1100B25046 /* gambleResult.swift */,
+				4CD2907F2517D87300BE17B9 /* OnboardingPage.swift */,
+				4C40261B249C4F1100B25046 /* GambleResult.swift */,
 				4CD8F394247DBB0C00A637A2 /* RowController.swift */,
 				4C9FCEC3245B71FF002FE3F1 /* ExtensionDelegate.swift */,
 				4C9FCEC5245B71FF002FE3F1 /* NotificationController.swift */,
@@ -279,7 +282,8 @@
 			files = (
 				4CD8F395247DBB0C00A637A2 /* RowController.swift in Sources */,
 				4C6383572477237800CF93B4 /* UpgradeInterfaceController.swift in Sources */,
-				4C40261C249C4F1100B25046 /* gambleResult.swift in Sources */,
+				4CD290802517D87300BE17B9 /* OnboardingPage.swift in Sources */,
+				4C40261C249C4F1100B25046 /* GambleResult.swift in Sources */,
 				4C736AF92480646E00386E70 /* Position.swift in Sources */,
 				4C9FCEC6245B71FF002FE3F1 /* NotificationController.swift in Sources */,
 				4CF77FED248990010054E4AA /* SharedData.swift in Sources */,

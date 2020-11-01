@@ -13,7 +13,6 @@ struct Position {
     var name:String
     var image:String
     var upgradeButtonText:String
-    var upgradeButtonImage:String
     var upgradeButtonCost:Int 
     var gambles:[Gamble]
     var earningRate:Double
@@ -25,7 +24,10 @@ struct Position {
 struct Gamble {
     var name:String
     var image:String
-    var profitPossibility:Int
-    var winOrLossText : [String]
-    var profitOrLossAmount : [Int]
+    var profitProbability:Double
+    var winText:String
+    var lossText: String
+    var profitAmount : Int
+    var lossAmount : Int
+    var demotion : String
 }
